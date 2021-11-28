@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD :) 0mg Record Store</title>
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault(); 
+        }
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+    <style>
+        #div1 {
+          margin: 0 auto;
+          width: 900px;
+          height: 400px;
+          background-color: white;
+          border-radius: 20pt;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="hd1" class="w3-margin-top">
+            <i onclick="w3_open()" class="fa fa-bars" style="font-size:30px; padding: 5px 20px;"></i>
+            <a href="./index.html" style="font-size: 20pt; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0mg Record Store</a>
+            <!--검색창-->
+            <div class="search-box">
+                <input type="text" class="search-txt" placeholder="Search...">
+                <a class="search-btn" href="#">
+                  <i class="fa fa-search"></i>
+                </a>
+            </div>
+        </div>
+        <div id="hd2">
+            <ul class="nav">
+
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>BEST</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>CD</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>VINYL</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <a href="#"><li>MD</li></a>
+                <a href="./secondhand.html"><li>중고</li></a>
+            </ul>
+        </div>
+        <div class="w3-sidebar w3-bar-block	w3-border-right w3-animate-opacity" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times; </button>
+            <br>
+            <div id="login" class="w3-container">
+                ID : <input type="text" class="w3-input w3-border" id="id"><br>
+                PW : <input type="password" class="w3-input w3-border" id="pw"><br>
+                <button class="w3-button w3-border " onclick="login();">login</button>
+            </div>
+            <br>
+            <a href="http://altdif.com/" target="_blank" class="w3-bar-item w3-button">altdif</a>
+            <a href="https://www.recordstore.co.uk/" target="_blank" class="w3-bar-item w3-button">recordstore</a>
+            <a href="https://www.10x10.co.kr/index.asp" target="_blank" class="w3-bar-item w3-button">10x10</a>
+        </div>   
+    </header>
+    <section>
+        <div style="padding-top: 140px;"></div>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <h5 style="text-align-last: center;">구매하실 상품을 드래그 해주세요 <br><button class="w3-button" style="background-color: white;">구매</button></h5> 
+        <div style="justify-content: center; margin: 0 auto;">
+            <img id="pic1" src="./images/001.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic2" src="./images/002.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic3" src="./images/003.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic4" src="./images/004.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic5" src="./images/005.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic6" src="./images/006.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic7" src="./images/007.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic8" src="./images/008.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic9" src="./images/009.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+            <img id="pic10" src="./images/010.png" draggable="true" ondragstart="drag(event)" width, height="190px">
+
+        </div>
+        
+
+
+    </section>
+    
+    <a style="display: scroll; position: fixed; bottom: 30px; right: 50px;" href="#">
+        <i class="fa fa-arrow-circle-o-up" style="background-color: none; font-size: 30px;"></i></a>
+    <a style="display: scroll; position: fixed; bottom: 30px; right: 100px;" href="#footer">
+        <i class="fa fa-arrow-circle-o-down" style="background-color: none; font-size: 30px;"></i></a>
+
+    
+
+    <footer style="background: #e2e2e2; padding:20px 20px 30px 20px;">
+        <div>
+            <ul style="word-spacing: 10px; text-align: center;">
+                <a href=""><span>이용약관</span></a>
+                <a href=""><span>개인정보취급방침</span></a>
+                <a href=""><span>이용안내</span></a>
+            </ul>
+            <hr>
+        </div>
+        <div class="w3-row">
+            <div class="w3-col s4 w3-container">
+                <h6>Company : 051 111 1111 <br> Phone : 010 1111 1111
+                <br><a href="mailto:o8naif@donga.ac.kr">E-mail : o8naif@donga.ac.kr</a></h6>
+                
+            </div>
+            <div class="w3-col s4 w3-container">
+                <h6>Adress : 부산광역시 일이구 삼사동 56-7</h6>
+                <a href="./map.html"><i class="fa fa-location-arrow" style="font-size:30px;padding-inline: 5px;"></i></a>
+                <i class="fa fa-instagram" style="font-size:30px;padding-inline: 5px;"></i>
+                <i class="fa fa-facebook" style="font-size:30px;padding-inline: 7px;"></i>
+                <a href="https://chosubindonga.github.io/web/"><i class="fa fa-github" style="font-size:30px;padding-inline: 10px;"></i></a>
+    
+            </div>
+            <div class="w3-col s4 w3-container">
+                <h6>COPYRIGHT ⓒ 2021 0mg Record Store. ALL RIGHTS RESERVED.</h6>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

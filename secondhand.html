@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중고 상품 :) 0mg Record Store</title>
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <script>
+        let data = [["./images/01.jpg", "[CD] Cocteau Twins - Heaven or Las Vegas", 13000,"최상"],
+        ["./images/02.jpg", "[CD] 세븐틴 정규 3집 An Ode ", 10000,"상"],
+        ["./images/03.png", "[MD] Summer Salt 티셔츠", 28000,"최상"],
+        ["./images/04.jpeg", "[LP] Talor Swift - Lover", 30000,"상"],
+        ["./images/05.jpg", "[CD] 쿨(COOL) - 운명", 5000,"중"]]
+
+
+           function tablePrint(){
+            let text = '';
+            text = `<table class="w3-table-all w3-hoverable"><tr class="w3-black">
+                <th>상품 사진</th><<th>상품명</th><th>가격</th><th>상태</th>`
+                for(let i = 0; i<data.length; i++){
+                    text += `<tr><td><img src=${data[i][0]} width, height=100px; onclick="onClick(this)"></td>
+                        <td>${data[i][1]}</td><td>${data[i][2]}</td><td>${data[i][3]}</td></tr>`
+                    }
+            text += `</table>`;
+                document.getElementById("productList").innerHTML = text;
+           }
+
+           function fileUpload(){
+               let a = new Array();
+               let file = "./images/" + document.getElementById("file").files[0].name; // 여러 파일이 배열이기 때문에
+               let name = document.getElementById("name").value;
+               let price = parseInt(document.getElementById("price").value);
+               let grade = document.getElementById("grade").value;
+
+               a[0] = file;
+               a[1] = name;
+               a[2] = price;
+               a[3] = grade;
+               data.push(a);
+               console.log(data);
+           }
+
+           function onClick(element){
+               document.getElementById("img01").src = element.src;
+               document.getElementById("modal01").style.display = "block";
+           }
+    </script>
+</head>
+<body onload="tablePrint()">
+    <header>
+        <div id="hd1" class="w3-margin-top">
+            <i onclick="w3_open()" class="fa fa-bars" style="font-size:30px; padding: 5px 20px;"></i>
+            <a href="./index.html" style="font-size: 20pt; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0mg Record Store</a>
+            <!--검색창-->
+            <div class="search-box">
+                <input type="text" class="search-txt" placeholder="Search...">
+                <a class="search-btn" href="#">
+                  <i class="fa fa-search"></i>
+                </a>
+            </div>
+        </div>
+        <div id="hd2">
+            <ul class="nav">
+
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>BEST</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>CD</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>VINYL</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <a href="./md.html"><li>MD</li></a>
+                <a href="./secondhand.html"><li>중고</li></a>
+            </ul>
+        </div>
+        <div class="w3-sidebar w3-bar-block	w3-border-right w3-animate-opacity" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times; </button>
+            <br>
+            <div id="login" class="w3-container">
+                ID : <input type="text" class="w3-input w3-border" id="id"><br>
+                PW : <input type="password" class="w3-input w3-border" id="pw"><br>
+                <button class="w3-button w3-border " onclick="login();">login</button>
+            </div>
+            <br>
+            <a href="http://altdif.com/" target="_blank" class="w3-bar-item w3-button">altdif</a>
+            <a href="https://www.recordstore.co.uk/" target="_blank" class="w3-bar-item w3-button">recordstore</a>
+            <a href="https://www.10x10.co.kr/index.asp" target="_blank" class="w3-bar-item w3-button">10x10</a>
+        </div>   
+    </header>
+
+    <section>
+        <div class="w3-container" style="padding-top: 120px;">
+            <h3>상품 등록</h3>
+            사진 : <input class="w3-input" type="file" name="" id="file"> <br>
+            앨범/가수명 : <input class="w3-input" type="text" name="" id="name"> <br>
+            가격 : <input class="w3-input" type="text" name="" id="price"> <br>
+            상태 : <input class="w3-input" type="text" name="" id="grade"> <br>
+            <button class= "w3-button w3-white" onclick="fileUpload();">등록</button>
+            <button class= "w3-button w3-white" onclick="tablePrint();">새로고침</button>
+        </div>     
+        <br>
+        <div id="demo" class="w3-container">
+            <table>
+            <div id="productList">
+            </div>
+            </table>
+        </div>
+        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+            <div class="w3-modal-content w3-animate-zoom">
+                <img id="img01" style="width:100%;">
+            </div>
+        </div>
+    </section>
+
+    <a style="display: scroll; position: fixed; bottom: 30px; right: 50px;" href="#">
+        <i class="fa fa-arrow-circle-o-up" style="background-color: none; font-size: 30px;"></i></a>
+    <a style="display: scroll; position: fixed; bottom: 30px; right: 100px;" href="#footer">
+        <i class="fa fa-arrow-circle-o-down" style="background-color: none; font-size: 30px;"></i></a>
+
+    <footer style="background: #e2e2e2; padding:20px 20px 30px 20px;">
+        <div>
+            <ul style="word-spacing: 15px; text-align: center;">
+                <a href=""><span>이용약관</span></a>
+                <a href=""><span>개인정보취급방침</span></a>
+                <a href=""><span>이용안내</span></a>
+            </ul>
+        </div>
+        <div class="w3-row">
+            <div class="w3-col s4 w3-container">
+                <h6>Company : 051 111 1111 <br> Phone : 010 1111 1111
+                <br><a href="mailto:o8naif@donga.ac.kr">E-mail : o8naif@donga.ac.kr</a></h6>
+                
+            </div>
+            <div class="w3-col s4 w3-container">
+                <h6>Adress : 부산광역시 일이구 삼사동 56-7</h6>
+                <a href="./map.html"><i class="fa fa-location-arrow" style="font-size:30px;padding-inline: 5px;"></i></a>
+                <i class="fa fa-instagram" style="font-size:30px;padding-inline: 5px;"></i>
+                <i class="fa fa-facebook" style="font-size:30px;padding-inline: 7px;"></i>
+                <a href="https://chosubindonga.github.io/web/"><i class="fa fa-github" style="font-size:30px;padding-inline: 10px;"></i></a>
+    
+            </div>
+            <div class="w3-col s4 w3-container">
+                <h6>COPYRIGHT ⓒ 2021 0mg Record Store. ALL RIGHTS RESERVED.</h6>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location :) 0mg Record Store</title>
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f90a191e68abf1c13873ebd08cc92635
+    "></script>
+    <script>
+        function getGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showLocation);
+            }
+        }
+        function showLocation(location) {
+            let lat = 0.0, long = 0.0;
+            lat = location.coords.latitude;
+            long = location.coords.longitude;
+
+            var container = document.getElementById('map');
+		    var options = {
+			center: new kakao.maps.LatLng(lat, long),
+			level: 3
+		    };
+
+		    var map = new kakao.maps.Map(container, options);
+
+            // 마커가 표시될 위치입니다 
+            var markerPosition  = new kakao.maps.LatLng(lat, long); 
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+
+            // 마커가 지도 위에 표시되도록 설정합니다
+            marker.setMap(map);
+
+            // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+            // marker.setMap(null); 
+
+
+            // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+            var mapTypeControl = new kakao.maps.MapTypeControl();
+
+            // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+            // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+            map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+            // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+            var zoomControl = new kakao.maps.ZoomControl();
+            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+        }
+    </script>
+</head>
+<body onload="getGeolocation();">
+    <header>
+        <div id="hd1" class="w3-margin-top">
+            <i onclick="w3_open()" class="fa fa-bars" style="font-size:30px; padding: 5px 20px;"></i>
+            <a href="./index.html" style="font-size: 20pt; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0mg Record Store</a>
+            <!--검색창-->
+            <div class="search-box">
+                <input type="text" class="search-txt" placeholder="Search...">
+                <a class="search-btn" href="#">
+                  <i class="fa fa-search"></i>
+                </a>
+            </div>
+        </div>
+        <div id="hd2">
+            <ul class="nav">
+
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>BEST</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>CD</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover" style="background-color: white;">
+                    <a href="#"><li>VINYL</li></a>
+                    <div class="w3-dropdown-content w3-bar-block ">
+                        <a href="#" class="w3-bar-item w3-button">Rock</a>
+                        <a href="#" class="w3-bar-item w3-button">POP</a>
+                        <a href="#" class="w3-bar-item w3-button">Indie</a>
+                        <a href="#" class="w3-bar-item w3-button">hip-hop</a>
+                        <a href="#" class="w3-bar-item w3-button">Classic</a>
+                        <a href="#" class="w3-bar-item w3-button">종교</a>
+                    </div>
+                </div>
+                <a href="./md.html"><li>MD</li></a>
+                <a href="./secondhand.html"><li>중고</li></a>
+            </ul>
+        </div>
+        <div class="w3-sidebar w3-bar-block	w3-border-right w3-animate-opacity" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times; </button>
+            <br>
+            <div id="login" class="w3-container">
+                ID : <input type="text" class="w3-input w3-border" id="id"><br>
+                PW : <input type="password" class="w3-input w3-border" id="pw"><br>
+                <button class="w3-button w3-border " onclick="login();">login</button>
+            </div>
+            <br>
+            <a href="http://altdif.com/" target="_blank" class="w3-bar-item w3-button">altdif</a>
+            <a href="https://www.recordstore.co.uk/" target="_blank" class="w3-bar-item w3-button">recordstore</a>
+            <a href="https://www.10x10.co.kr/index.asp" target="_blank" class="w3-bar-item w3-button">10x10</a>
+        </div>   
+    </header>
+    <section>
+        <div style="align-items: center; padding-top: 130px;">
+            <div id="map" style="width:980px;height:500px;"></div>
+
+        </div>
+    </section>
+
+    <a style="display: scroll; position: fixed; bottom: 30px; right: 50px;" href="#">
+        <i class="fa fa-arrow-circle-o-up" style="background-color: none; font-size: 30px;"></i></a>
+    <a style="display: scroll; position: fixed; bottom: 30px; right: 100px;" href="#footer">
+        <i class="fa fa-arrow-circle-o-down" style="background-color: none; font-size: 30px;"></i></a>
+
+    
+
+    <footer style="background: #e2e2e2; padding:20px 20px 30px 20px;">
+        <div>
+            <ul style="word-spacing: 10px; text-align: center;">
+                <a href=""><span>이용약관</span></a>
+                <a href=""><span>개인정보취급방침</span></a>
+                <a href=""><span>이용안내</span></a>
+            </ul>
+            <hr>
+        </div>
+        <div class="w3-row">
+            <div class="w3-col s4 w3-container">
+                <h6>Company : 051 111 1111 <br> Phone : 010 1111 1111
+                <br><a href="mailto:o8naif@donga.ac.kr">E-mail : o8naif@donga.ac.kr</a></h6>
+                
+            </div>
+            <div class="w3-col s4 w3-container">
+                <h6>Adress : 부산광역시 일이구 삼사동 56-7</h6>
+                <a href="./map.html"><i class="fa fa-location-arrow" style="font-size:30px;padding-inline: 5px;"></i></a>
+                <i class="fa fa-instagram" style="font-size:30px;padding-inline: 5px;"></i>
+                <i class="fa fa-facebook" style="font-size:30px;padding-inline: 7px;"></i>
+                <a href="https://chosubindonga.github.io/web/"><i class="fa fa-github" style="font-size:30px;padding-inline: 10px;"></i></a>
+    
+            </div>
+            <div class="w3-col s4 w3-container">
+                <h6>COPYRIGHT ⓒ 2021 0mg Record Store. ALL RIGHTS RESERVED.</h6>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
