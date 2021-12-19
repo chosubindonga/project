@@ -20,7 +20,7 @@
            function tablePrint(){
             let text = '';
             text = `<table class="w3-table-all w3-hoverable"><tr class="w3-black">
-                <th>상품 사진</th><<th>상품명</th><th>가격</th><th>상태</th>`
+                <th>상품 사진</th><th>상품명</th><th>가격</th><th>상태</th>`
                 for(let i = 0; i<data.length; i++){
                     text += `<tr><td><img src=${data[i][0]} width, height=100px; onclick="onClick(this)"></td>
                         <td>${data[i][1]}</td><td>${data[i][2]}</td><td>${data[i][3]}</td></tr>`
